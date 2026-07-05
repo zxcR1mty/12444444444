@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="R1 - гайды по оптимизации Windows, NVIDIA и популярных игр.">
+    <title>R1 - оптимизация FPS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="index.html" aria-label="R1 home">R1</a>
+        <button class="menu-button" type="button" aria-label="Открыть меню" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav" aria-label="Главная навигация">
+            <a href="#games">Игры</a>
+            <a href="#system">Windows</a>
+            <a href="#gpu">NVIDIA</a>
+            <a href="#tools">Утилиты</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-media">
+                <img src="assets/fon.jpg" alt="Логотип R1" class="hero-logo">
+            </div>
+            <p class="eyebrow">Performance Optimization</p>
+            <p class="hero-lead">Гайды для стабильного FPS, низкой задержки и чистой системы без лишнего шума.</p>
+            <div class="hero-tags" aria-label="Темы сайта">
+                <span>Windows 11</span>
+                <span>NVIDIA</span>
+                <span>Games</span>
+                <span>Apps</span>
+            </div>
+        </section>
+
+        <section class="section" id="games">
+            <div class="section-heading">
+                <p class="section-kicker">Игры</p>
+                <h1>Оптимизация под конкретные игры</h1>
+            </div>
+            <div class="cards-grid">
+                <a class="card" href="pages/dota.html">
+                    <span class="card-icon card-icon-red">D2</span>
+                    <span class="card-title">Dota 2</span>
+                    <span class="card-desc">Настройки запуска, FPS, задержка ввода и графика.</span>
+                </a>
+                <a class="card" href="pages/valorant.html">
+                    <span class="card-icon card-icon-pink">V</span>
+                    <span class="card-title">Valorant</span>
+                    <span class="card-desc">Чистый input lag, стабильные кадры и сетевые настройки.</span>
+                </a>
+                <a class="card" href="pages/cs2.html">
+                    <span class="card-icon card-icon-amber">CS</span>
+                    <span class="card-title">CS2</span>
+                    <span class="card-desc">Видео, консоль, запуск и приоритет стабильности.</span>
+                </a>
+                <a class="card" href="pages/cyberpunk.html">
+                    <span class="card-icon card-icon-cyan">77</span>
+                    <span class="card-title">Cyberpunk 2077</span>
+                    <span class="card-desc">Баланс качества, DLSS, трассировка и плавность.</span>
+                </a>
+                <a class="card" href="pages/minecraft.html">
+                    <span class="card-icon card-icon-green">MC</span>
+                    <span class="card-title">Minecraft</span>
+                    <span class="card-desc">Java, моды, шейдеры, память и сборки без лагов.</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="section" id="system">
+            <div class="section-heading">
+                <p class="section-kicker">Система</p>
+                <h2>Windows и базовая настройка</h2>
+            </div>
+            <div class="cards-grid cards-grid-compact">
+                <a class="card" href="pages/windows.html">
+                    <span class="card-icon card-icon-blue">11</span>
+                    <span class="card-title">Windows 11</span>
+                    <span class="card-desc">Питание, автозагрузка, Game Mode, фоновые процессы.</span>
+                </a>
+                <a class="card" href="pages/msi-afterburner.html">
+                    <span class="card-icon card-icon-silver">MSI</span>
+                    <span class="card-title">MSI Afterburner</span>
+                    <span class="card-desc">Мониторинг, вентиляторы, температуры и стабильность.</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="section" id="gpu">
+            <div class="section-heading">
+                <p class="section-kicker">GPU</p>
+                <h2>NVIDIA</h2>
+            </div>
+            <div class="cards-grid cards-grid-compact">
+                <a class="card" href="pages/nvidia-control-panel.html">
+                    <span class="card-icon card-icon-green">NV</span>
+                    <span class="card-title">NVIDIA Control Panel</span>
+                    <span class="card-desc">Глобальные параметры и профили для игр.</span>
+                </a>
+                <a class="card" href="pages/nvidia-profile-inspector.html">
+                    <span class="card-icon card-icon-lime">PI</span>
+                    <span class="card-title">Profile Inspector</span>
+                    <span class="card-desc">Тонкие параметры драйвера и профили приложений.</span>
+                </a>
+                <a class="card" href="pages/nvidia-app.html">
+                    <span class="card-icon card-icon-teal">APP</span>
+                    <span class="card-title">NVIDIA App</span>
+                    <span class="card-desc">Оверлей, драйверы, запись и оптимизация.</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="section closing" id="tools">
+            <p class="section-kicker">R1</p>
+            <h2>Максимум FPS. Минимум лагов. Полный контроль.</h2>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <span class="footer-logo">R1</span>
+        <span class="footer-copy">Гайды по оптимизации Windows, NVIDIA и игр.</span>
+    </footer>
+</body>
+</html>
