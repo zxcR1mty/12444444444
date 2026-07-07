@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R1MTY — Гайды Dota 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #050505;
+            --bg-card: #0a0a0a;
+            --border-color: #1a1a1a;
+            --border-hover: #2a2a2a;
+            --text-primary: #e0e0e0;
+            --text-secondary: #888888;
+            --font-primary: 'Inter', sans-serif;
+            --font-display: 'Orbitron', sans-serif;
+        }
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-primary);
+            padding: 40px 20px;
+            display: flex; justify-content: center;
+        }
+        .container { max-width: 800px; width: 100%; }
+
+        .back-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 14px; font-weight: 500; letter-spacing: 1px;
+            margin-bottom: 30px; transition: 0.3s;
+            text-transform: uppercase;
+        }
+        .back-btn:hover { color: var(--text-primary); }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: 32px; letter-spacing: 6px; margin-bottom: 30px;
+            text-transform: uppercase; border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 2px;
+            margin-bottom: 15px; overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .step-card:hover { border-color: var(--border-hover); }
+
+        .step-header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px; cursor: pointer; user-select: none;
+        }
+        .step-title {
+            font-family: var(--font-display);
+            font-size: 16px; letter-spacing: 2px; text-transform: uppercase;
+        }
+        .step-icon { transition: transform 0.3s ease; color: var(--text-secondary); }
+        
+        .step-body {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 20px;
+            border-top: 1px solid transparent;
+        }
+        
+        .step-card.open { border-color: var(--border-hover); }
+        .step-card.open .step-body {
+            max-height: 500px; padding: 20px;
+            border-top-color: var(--border-color);
+        }
+        .step-card.open .step-icon { transform: rotate(180deg); color: var(--text-primary); }
+
+        .step-content {
+            font-size: 15px; line-height: 1.6; color: var(--text-secondary);
+        }
+        .step-content b { color: var(--text-primary); }
+        
+        .code-box {
+            background: #0e0e0e; border: 1px solid var(--border-color);
+            padding: 15px; margin-top: 15px;
+            font-family: 'Inter', sans-serif; font-size: 14px; color: #ddd;
+        }
+        .code-box span { display: block; margin-bottom: 5px; }
+        .code-box .copy-btn {
+            background: transparent; border: 1px solid var(--border-color);
+            color: var(--text-secondary); padding: 4px 12px; cursor: pointer;
+            font-size: 11px; transition: 0.2s; text-transform: uppercase;
+        }
+        .code-box .copy-btn:hover { border-color: #fff; color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">← На главную</a>
+        <h1 class="page-title">Гайды Dota 2</h1>
+
+        <!-- Шаг 1 -->
+        <div class="step-card">
+            <div class="step-header" onclick="toggleStep(this)">
+                <div class="step-title">Шаг 1: Включить консоль</div>
+                <div class="step-icon">▼</div>
+            </div>
+            <div class="step-body">
+                <div class="step-content">
+                    <b>1.1</b> Запусти Dota 2 и зайди в <b>Настройки</b> (иконка шестеренки).<br>
+                    <b>1.2</b> Перейди во вкладку <b>"Дополнительно"</b>.<br>
+                    <b>1.3</b> Поставь галочку напротив <b>"Включить консоль разработчика"</b>.
+                </div>
+            </div>
+        </div>
+
+        <!-- Шаг 2 -->
+        <div class="step-card">
+            <div class="step-header" onclick="toggleStep(this)">
+                <div class="step-title">Шаг 2: Создать autoexec.cfg</div>
+                <div class="step-icon">▼</div>
+            </div>
+            <div class="step-body">
+                <div class="step-content">
+                    Чтобы настройки сохранялись после перезапуска игры, создай файл <b>autoexec.cfg</b>.<br><br>
+                    <b>2.1</b> Открой папку с игрой по пути:<br>
+                    <span style="color:#888; font-size:14px;">C:\Steam\steamapps\common\dota 2 beta\game\dota\cfg</span><br><br>
+                    <b>2.2</b> Создай там файл <b>autoexec.cfg</b> и вставь в него команды для автоматической загрузки.
+                </div>
+            </div>
+        </div>
+
+        <!-- Шаг 3 -->
+        <div class="step-card">
+            <div class="step-header" onclick="toggleStep(this)">
+                <div class="step-title">Шаг 3: Команды для настройки</div>
+                <div class="step-icon">▼</div>
+            </div>
+            <div class="step-body">
+                <div class="step-content">
+                    Открой консоль в игре (клавиша <b>~</b> или <b>Ё</b>) и вставь эти команды для поднятия FPS и настройки камеры:
+                    <div class="code-box">
+                        <span>dota_camera_distance 1800</span>
+                        <span>fps_max 0</span>
+                        <span>bind "F1" "dota_hero_pick"</span>
+                        <button class="copy-btn" onclick="copyText(event)">Копировать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleStep(header) {
+            const card = header.closest('.step-card');
+            card.classList.toggle('open');
+        }
+
+        function copyText(event) {
+            event.stopPropagation();
+            const text = event.target.parentElement.innerText.replace('Копировать', '').trim();
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = event.target;
+                const originalText = btn.innerText;
+                btn.innerText = "Скопировано!";
+                btn.style.borderColor = "#fff";
+                btn.style.color = "#fff";
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.borderColor = "#1a1a1a";
+                    btn.style.color = "#888";
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
