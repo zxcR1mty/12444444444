@@ -107,8 +107,6 @@ body {
 .cards-section { padding: 0 60px 60px; max-width: 1200px; margin: 0 auto; }
 .cards-grid { display: grid; gap: 20px; }
 .games-grid { grid-template-columns: repeat(4, 1fr); }
-
-/* Обновил сетку приложений, чтобы 6 карточек встали ровно */
 .apps-grid { grid-template-columns: repeat(3, 1fr); }
 
 .card {
