@@ -9,14 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
+        /* ===== КРАСНО-ЧЕРНАЯ ТЕМА ТОЛЬКО ДЛЯ ЭТОЙ СТРАНИЦЫ ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --bg-primary: #050505;
             --bg-card: #0a0a0a;
             --border-color: #1a1a1a;
-            --border-hover: #2a2a2a;
+            --border-hover: #e74c3c;
             --text-primary: #e0e0e0;
             --text-secondary: #888888;
+            --accent: #e74c3c;
+            --accent-glow: rgba(231, 76, 60, 0.3);
             --font-primary: 'Inter', sans-serif;
             --font-display: 'Orbitron', sans-serif;
         }
@@ -36,7 +39,7 @@
             margin-bottom: 30px; transition: 0.3s;
             text-transform: uppercase;
         }
-        .back-btn:hover { color: var(--text-primary); }
+        .back-btn:hover { color: var(--accent); }
 
         .page-title {
             font-family: var(--font-display);
@@ -71,17 +74,18 @@
             border-top: 1px solid transparent;
         }
         
-        .step-card.open { border-color: var(--border-hover); }
+        .step-card.open { border-color: var(--border-hover); box-shadow: 0 0 20px var(--accent-glow); }
         .step-card.open .step-body {
             max-height: 500px; padding: 20px;
             border-top-color: var(--border-color);
         }
-        .step-card.open .step-icon { transform: rotate(180deg); color: var(--text-primary); }
+        .step-card.open .step-icon { transform: rotate(180deg); color: var(--accent); }
 
         .step-content {
             font-size: 15px; line-height: 1.6; color: var(--text-secondary);
         }
         .step-content b { color: var(--text-primary); }
+        .step-content .highlight { color: var(--accent); }
         
         .code-box {
             background: #0e0e0e; border: 1px solid var(--border-color);
@@ -94,7 +98,7 @@
             color: var(--text-secondary); padding: 4px 12px; cursor: pointer;
             font-size: 11px; transition: 0.2s; text-transform: uppercase;
         }
-        .code-box .copy-btn:hover { border-color: #fff; color: #fff; }
+        .code-box .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
     </style>
 </head>
 <body>
@@ -105,14 +109,18 @@
         <!-- Шаг 1 -->
         <div class="step-card">
             <div class="step-header" onclick="toggleStep(this)">
-                <div class="step-title">Шаг 1: Включить консоль</div>
+                <div class="step-title">Шаг 1: Включить консоль и бинды</div>
                 <div class="step-icon">▼</div>
             </div>
             <div class="step-body">
                 <div class="step-content">
-                    <b>1.1</b> Запусти Dota 2 и зайди в <b>Настройки</b> (иконка шестеренки).<br>
-                    <b>1.2</b> Перейди во вкладку <b>"Дополнительно"</b>.<br>
-                    <b>1.3</b> Поставь галочку напротив <b>"Включить консоль разработчика"</b>.
+                    <b>1.1</b> Открой <b>Настройки</b> -> вкладку <b>"Дополнительно"</b>.<br>
+                    <b>1.2</b> Включи <b>"Консоль разработчика"</b>. Клавиша для открытия консоли в игре — <b>`~`</b> (тильда).<br><br>
+                    <b>1.3</b> Чтобы быстро пикать героя без мышки, вставь в консоль эту команду:<br>
+                    <div class="code-box">
+                        <span>bind "F1" "dota_hero_pick"</span>
+                        <button class="copy-btn" onclick="copyText(event)">Копировать</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -120,15 +128,18 @@
         <!-- Шаг 2 -->
         <div class="step-card">
             <div class="step-header" onclick="toggleStep(this)">
-                <div class="step-title">Шаг 2: Создать autoexec.cfg</div>
+                <div class="step-title">Шаг 2: Настройки Nvidia для Доты</div>
                 <div class="step-icon">▼</div>
             </div>
             <div class="step-body">
                 <div class="step-content">
-                    Чтобы настройки сохранялись после перезапуска игры, создай файл <b>autoexec.cfg</b>.<br><br>
-                    <b>2.1</b> Открой папку с игрой по пути:<br>
-                    <span style="color:#888; font-size:14px;">C:\Steam\steamapps\common\dota 2 beta\game\dota\cfg</span><br><br>
-                    <b>2.2</b> Создай там файл <b>autoexec.cfg</b> и вставь в него команды для автоматической загрузки.
+                    <b>2.1</b> Открой Панель управления Nvidia -> <b>"Управление параметрами 3D"</b>.<br>
+                    <b>2.2</b> Перейди в <b>"Программные настройки"</b>, выбери <b>Dota 2</b> из списка.<br><br>
+                    <b>2.3</b> Выставь эти параметры для максимального FPS:<br>
+                    • Режим управления электропитанием: <b class="highlight">Предпочитать максимальную производительность</b><br>
+                    • Фильтрация текстур (качество): <b class="highlight">Высокопроизводительная</b><br>
+                    • Сглаживание (FXAA): <b class="highlight">Выкл</b><br>
+                    • Максимальная частота кадров: <b class="highlight">Отключить</b>
                 </div>
             </div>
         </div>
@@ -136,12 +147,16 @@
         <!-- Шаг 3 -->
         <div class="step-card">
             <div class="step-header" onclick="toggleStep(this)">
-                <div class="step-title">Шаг 3: Команды для настройки</div>
+                <div class="step-title">Шаг 3: Создать autoexec.cfg</div>
                 <div class="step-icon">▼</div>
             </div>
             <div class="step-body">
                 <div class="step-content">
-                    Открой консоль в игре (клавиша <b>~</b> или <b>Ё</b>) и вставь эти команды для поднятия FPS и настройки камеры:
+                    Чтобы настройки сохранялись после перезапуска игры, создай файл <b>autoexec.cfg</b>.<br><br>
+                    <b>3.1</b> Открой папку с игрой по пути:<br>
+                    <span style="color:#888; font-size:14px;">C:\Steam\steamapps\common\dota 2 beta\game\dota\cfg</span><br><br>
+                    <b>3.2</b> Создай там файл <b>autoexec.cfg</b> и вставь в него команды для автоматической загрузки.<br><br>
+                    <b>Пример команд для вставки:</b>
                     <div class="code-box">
                         <span>dota_camera_distance 1800</span>
                         <span>fps_max 0</span>
@@ -166,8 +181,8 @@
                 const btn = event.target;
                 const originalText = btn.innerText;
                 btn.innerText = "Скопировано!";
-                btn.style.borderColor = "#fff";
-                btn.style.color = "#fff";
+                btn.style.borderColor = "#e74c3c";
+                btn.style.color = "#e74c3c";
                 setTimeout(() => {
                     btn.innerText = originalText;
                     btn.style.borderColor = "#1a1a1a";
